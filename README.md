@@ -45,6 +45,6 @@ Create by Reducer & State init
 
 ```js
 Reference source from
-- <a href="https://www.valentinog.com/blog/babel/">https://www.valentinog.com/blog/babel/</a>
-- <a href="https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1">https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1</a>
+- https://www.valentinog.com/blog/babel/
+- https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1
 ```
