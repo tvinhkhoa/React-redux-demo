@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { connect } from 'react-redux';
+// import * as action from 'action';
+import { toggle, addItem } from 'actions/action';
 import Input from "../presentational/Input.jsx";
 
 const inputRef = React.createRef();
@@ -9,8 +12,7 @@ class FormContainer extends Component {
 
         this.state = {
             seo_title: "",
-            inputValue: "",
-            isAdding: false
+            inputValue: ""
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,23 +28,24 @@ class FormContainer extends Component {
 
         const note = this._input.value;
         this.state.inputValue = this._input.value = "";
+        this._input.focus();
         this.setState(this.state);
 
-        this._input.focus();
-        this.toggle();
-
-        // input redux
-        this.props.handleAdd(note);
+        const {dispatch} = this.props;
+        dispatch(addItem(note));
+        dispatch(toggle());
     }
 
     toggle() {
-        this.state.isAdding = !this.state.isAdding;
-        this.setState(this.state);
+        // this.state.isAdding = !this.state.isAdding;
+        // this.setState(this.state);
+        var {dispatch} = this.props;
+        dispatch(toggle());
     }
 
     render() {
         const {seo_title} = this.state;
-        if (this.state.isAdding)
+        if (this.props.isAdding)
             return (
                 <form id="article-form" onSubmit={this.handleSubmit.bind(this)}>
                     { /*C1*/ }
@@ -83,4 +86,6 @@ class FormContainer extends Component {
     }
 }
 
-export default FormContainer;
+export default connect(function(state) {
+    return {isAdding: state.isAdding} // Share more
+})(FormContainer);

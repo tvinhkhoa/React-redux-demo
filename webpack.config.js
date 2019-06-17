@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require('path');
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
     template: "./src/index.html"
 });
@@ -6,7 +7,17 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 module.exports = {
     output: {
         path: __dirname + '/dist',
-        filename: 'bundle.js'
+        // path: __dirname + '/public/assets/',
+        // publicPath: "/assets/",
+        // filename: 'bundle.js',
+        // chunkFilename: '[name].js'
+    },
+    resolve: {
+        alias: {
+            reducers: path.resolve(__dirname, 'src/js/reducers/'),
+            actions: path.resolve(__dirname, 'src/actions/'),
+            stores: path.resolve(__dirname, 'src/stores/')
+        }
     },
     module: {
         rules: [

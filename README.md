@@ -15,6 +15,9 @@ webpack-dev-server --host 0.0.0.0 --port 80
 
 ## Redux
 
+npm install redux --save
+npm install react-redux --save
+
 ### Use
 - State Operator ...
 npm install babel-preset-stage-0 --save-dev
